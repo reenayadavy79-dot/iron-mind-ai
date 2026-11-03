@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Mind AI</title>
+<style>
+:root{--bg:#080910;--panel:#111321;--line:#24263a;--text:#f4f4fb;--muted:#9b9db5;--purple:#8b5cf6;--pink:#c084fc}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#241344 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:0 22px}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff0c}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.5px}.mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#a78bfa,#6d28d9);display:grid;place-items:center;box-shadow:0 0 26px #8b5cf655;font-size:18px}
+.navlinks{display:flex;gap:27px;color:var(--muted);font-size:14px}.navlinks a:hover{color:white}.credits{border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-size:13px;background:#141522}
+.hero{text-align:center;padding:82px 0 60px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #8b5cf644;border-radius:999px;padding:8px 13px;color:#d7c7ff;background:#8b5cf612;font-size:12px;font-weight:700;letter-spacing:.6px}
+h1{font-size:clamp(42px,8vw,76px);line-height:1.03;letter-spacing:-3px;margin:24px auto 20px;max-width:850px}.gradient{background:linear-gradient(90deg,#c4b5fd,#a78bfa,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:620px;margin:auto;color:var(--muted);font-size:17px;line-height:1.7}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{border:1px solid var(--line);border-radius:13px;padding:13px 19px;background:#151625;color:white;font-weight:700;cursor:pointer}.btn.primary{background:linear-gradient(135deg,#8b5cf6,#6d28d9);border:0;box-shadow:0 8px 30px #7c3aed33}.btn:hover{transform:translateY(-1px)}
+.preview{margin:0 auto 70px;max-width:900px;border:1px solid #34304b;border-radius:22px;background:#10111d;box-shadow:0 28px 90px #0008;overflow:hidden}.windowbar{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;color:#85869b;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:#514d67}.dash{display:grid;grid-template-columns:190px 1fr;min-height:290px}.side{padding:20px 14px;border-right:1px solid var(--line)}.side-label{color:#777991;font-size:10px;font-weight:800;letter-spacing:1px;margin:5px 10px 12px}.sideitem{padding:11px 12px;border-radius:10px;color:#a9abc0;font-size:13px;margin:4px 0}.sideitem.active{background:#8b5cf622;color:#d9caff;border:1px solid #8b5cf633}.main{padding:23px}.mainhead{display:flex;justify-content:space-between;gap:12px;align-items:center}.mainhead h3{margin:0;font-size:18px}.balance{font-size:12px;color:#c9b8ff;background:#8b5cf61c;border:1px solid #8b5cf633;padding:8px 10px;border-radius:9px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:20px}.feature{border:1px solid var(--line);border-radius:15px;padding:18px;background:linear-gradient(145deg,#171829,#11121d)}.ficon{width:38px;height:38px;border-radius:12px;background:#8b5cf622;display:grid;place-items:center;font-size:19px}.feature h4{margin:13px 0 7px}.feature p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}.tag{display:inline-block;margin-top:14px;color:#c8b5ff;font-size:11px}
+section{padding:48px 0}.section-title{text-align:center;font-size:32px;letter-spacing:-1px;margin:0 0 12px}.section-sub{text-align:center;color:var(--muted);margin:0 auto 30px;max-width:550px;line-height:1.6}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.smallcard{border:1px solid var(--line);background:#10111b;border-radius:16px;padding:22px}.smallcard h3{margin:14px 0 8px;font-size:16px}.smallcard p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.price{max-width:460px;margin:28px auto;border:1px solid #5e438c;border-radius:20px;background:linear-gradient(145deg,#171329,#10111b);padding:26px;text-align:center}.price h3{margin:0 0 10px}.price .big{font-size:36px;font-weight:800}.price p{color:var(--muted);font-size:13px}.price ul{list-style:none;padding:0;text-align:left;line-height:2.1;color:#d1d2e2;font-size:14px}
+footer{border-top:1px solid #ffffff12;padding:28px 0;color:#777991;font-size:12px;text-align:center}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222238;border:1px solid #514477;padding:12px 17px;border-radius:12px;display:none;font-size:13px;z-index:5}
+@media(max-width:650px){.navlinks{display:none}.hero{padding:60px 0 45px}h1{letter-spacing:-1.8px}.dash{grid-template-columns:1fr}.side{display:none}.cards{grid-template-columns:1fr}.features{grid-template-columns:1fr}.main{padding:17px}.preview{margin-bottom:40px}.section-title{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="logo" href="#"><span class="mark">✦</span> IRON MIND <span style="color:#b69cff">AI</span></a><div class="navlinks"><a href="#features">Features</a><a href="#studio">AI Studio</a><a href="#pricing">Credits</a></div><div class="credits">✦ 1,000 credits</div></nav>
+<header class="hero">
+<div class="eyebrow">✦ YOUR ALL-IN-ONE AI STUDIO</div>
+<h1>Your Imagination.<br><span class="gradient">Infinite Intelligence.</span></h1>
+<p class="sub">Create, explore, and bring your ideas to life with powerful AI tools—all in one futuristic workspace.</p>
+<div class="actions"><button class="btn primary" onclick="toast('Welcome to Iron Mind AI!')">Get Started ↗</button><a class="btn" href="#studio">Explore AI Tools ↓</a></div>
+</header>
+<div class="preview" id="studio">
+<div class="windowbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:10px">ironmind.ai / dashboard</span></div>
+<div class="dash"><aside class="side"><div class="side-label">WORKSPACE</div><div class="sideitem active">✦ Overview</div><div class="sideitem">◉ AI Chat</div><div class="sideitem">▶ Video Generator</div><div class="sideitem">✂ Video Editor</div><div class="sideitem">◇ My Creations</div><div class="side-label" style="margin-top:25px">ACCOUNT</div><div class="sideitem">⚙ Settings</div></aside>
+<div class="main"><div class="mainhead"><h3>Welcome to your AI Studio</h3><div class="balance">✦ 1,000 credits</div></div><div class="cards">
+<div class="feature"><div class="ficon">◉</div><h4>AI Chat</h4><p>Ask questions, brainstorm, and work with AI assistants.</p><span class="tag">Explore models ↗</span></div>
+<div class="feature"><div class="ficon">▶</div><h4>AI Video Generator</h4><p>Turn text prompts and images into captivating videos.</p><span class="tag">Create video ↗</span></div>
+</div></div></div></div>
+<section id="features"><h2 class="section-title">One studio. Endless possibilities.</h2><p class="section-sub">The creative tools you need, brought together in one simple workspace.</p><div class="features">
+<div class="smallcard"><div class="ficon">◉</div><h3>AI Chat</h3><p>Get help with ideas, writing, learning, and everyday tasks.</p></div>
+<div class="smallcard"><div class="ficon">▶</div><h3>Text & Image to Video</h3><p>Imagine a scene, describe it, and create video content with AI.</p></div>
+<div class="smallcard"><div class="ficon">✂</div><h3>Video Editor</h3><p>A creative editing workspace designed to refine your generated videos.</p></div>
+</div></section>
+<section id="pricing"><h2 class="section-title">Simple credits</h2><p class="section-sub">Start exploring with a credit balance built into your dashboard concept.</p><div class="price"><h3>Starter</h3><div class="big">1,000 <span style="font-size:15px;color:#b69cff">credits</span></div><p>Initial demo balance</p><ul><li>✓ AI tools dashboard preview</li><li>✓ Video generation concept</li><li>✓ Responsive mobile interface</li><li>✓ Credit balance display</li></ul><button class="btn primary" onclick="toast('This is a frontend demo. APIs will be connected later.')">Start Creating</button></div></section>
+<footer>© 2026 Iron Mind AI · Built for imagination</footer>
+</div><div class="toast" id="toast"></div>
+<script>function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2600)}</script>
+</body></html>
