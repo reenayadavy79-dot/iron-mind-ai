@@ -47,4 +47,81 @@ footer{border-top:1px solid #ffffff12;padding:28px 0;color:#777991;font-size:12p
 <footer>© 2026 Iron Mind AI · Built for imagination</footer>
 </div><div class="toast" id="toast"></div>
 <script>function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2600)}</script>
+
+<!-- IRON MIND AI CHAT -->
+<style>
+#im-chat-btn {
+  position:fixed; bottom:20px; right:20px;
+  background:#8b5cf6; color:white; border:0;
+  padding:14px 20px; border-radius:30px;
+  font-size:16px; font-weight:bold; z-index:9999;
+}
+#im-chat-box {
+  display:none; position:fixed; bottom:80px; right:15px;
+  width:320px; max-width:90vw; height:420px;
+  background:#111827; color:white; border:1px solid #8b5cf6;
+  border-radius:16px; z-index:9999; padding:14px;
+  box-sizing:border-box; font-family:Arial;
+}
+#im-chat-messages {
+  height:300px; overflow:auto; margin:12px 0;
+}
+#im-chat-messages p {
+  background:#242b3a; padding:10px; border-radius:10px;
+  overflow-wrap:anywhere;
+}
+#im-chat-input {
+  width:70%; padding:10px; border-radius:8px;
+  background:#202738; color:white; border:1px solid #555;
+}
+</style>
+
+<button id="im-chat-btn">✦ AI Chat</button>
+
+<div id="im-chat-box">
+  <div style="display:flex;justify-content:space-between">
+    <b>✦ Iron Mind AI</b>
+    <button id="im-chat-close">✕</button>
+  </div>
+
+  <div id="im-chat-messages">
+    <p>Namaste! 👋 Iron Mind AI Chat mein welcome. Apna sawal likho.</p>
+  </div>
+
+  <form id="im-chat-form">
+    <input id="im-chat-input" placeholder="Ask anything..." required>
+    <button type="submit">➤</button>
+  </form>
+  <small style="color:#aaa">Demo mode — AI connection abhi baaki hai.</small>
+</div>
+
+<script>
+const chatBtn = document.getElementById("im-chat-btn");
+const chatBox = document.getElementById("im-chat-box");
+const chatClose = document.getElementById("im-chat-close");
+const chatForm = document.getElementById("im-chat-form");
+const chatInput = document.getElementById("im-chat-input");
+const chatMessages = document.getElementById("im-chat-messages");
+
+chatBtn.onclick = () => chatBox.style.display = "block";
+chatClose.onclick = () => chatBox.style.display = "none";
+
+chatForm.onsubmit = function(e) {
+  e.preventDefault();
+
+  const question = document.createElement("p");
+  question.textContent = "You: " + chatInput.value;
+  chatMessages.appendChild(question);
+
+  const answer = document.createElement("p");
+  answer.textContent =
+    "Iron Mind AI: Demo mode chal raha hai. Real AI response ke liye backend connection zaroori hai.";
+  chatMessages.appendChild(answer);
+
+  chatInput.value = "";
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+};
+</script>
+<!-- END IRON MIND AI CHAT -->
+  
 </body></html>
